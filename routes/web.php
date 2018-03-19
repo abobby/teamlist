@@ -11,6 +11,12 @@
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
+});*/
+
+Route::group(['middleware' => 'web','prefix'=>'/'], function(){
+    Route::get('/', 'IndexController@index');
+    Route::get('/players/{tid}', 'PlayersController@playersList');
 });
